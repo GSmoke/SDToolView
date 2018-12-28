@@ -245,7 +245,7 @@
         [textField addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
         [textField addTarget:self action:@selector(textDidEndChange:) forControlEvents:UIControlEventEditingDidEnd];
 
-        [textField setValue:self.placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+        [textField setValue:txtPlaceColor forKeyPath:@"_placeholderLabel.textColor"];
 //        textField.backgroundColor = RandomColor;
         [self addSubview:textField];
         self.textField = textField;
