@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 
   # Masonry
   s.name         = "SDToolView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "SDToolView让搭建设置界面 发布界面 更简单"
 
   s.homepage     = "https://github.com/GSmoke/SDToolView"
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/GSmoke/SDToolView.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/GSmoke/SDToolView.git", :tag => "0.0.2" }
   #  s.source       = { :git => "http://EXAMPLE/SDToolView.git", :tag => "#{s.version}" }
 
   s.source_files  = "SDToolView/*.{h,m}"
