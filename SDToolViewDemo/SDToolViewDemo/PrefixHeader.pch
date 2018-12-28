@@ -1,0 +1,55 @@
+//
+//  PrefixHeader.pch
+//  SDToolViewDemo
+//
+//  Created by apple on 2018/12/28.
+//  Copyright © 2018年 apple. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"< %s:(%d) > %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+#else
+# define NSLog(...);
+#endif
+
+// 屏幕宽高
+#define SCREEN_W [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_H [[UIScreen mainScreen] bounds].size.height
+
+/// 系统字体
+#define SYS_FONT(x) [UIFont systemFontOfSize:x]
+
+// 常用颜色
+#define txtMainColor      UIColorFromRGB(0x333333)  // 文字主色
+#define txtSeconColor     UIColorFromRGB(0x666666)  // 文字辅色
+#define txtPlaceColor     UIColorFromRGB(0x999999)  // 占位颜色
+
+#define bgYellowColor     UIColorFromRGB(0xFF9900)  // 黄色
+#define bgBlueColor       UIColorFromRGB(0xF0F6FF)
+#define bgGrayColor       UIColorFromRGB(0xF4F4F4)  // 灰色背景
+#define sepLineColor      UIColorFromRGB(0xE1E1E1)  // 分隔线的颜色
+
+// 16进制颜色
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+// 16进制颜色
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+
+// 适配
+#define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+
+#define CJ_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPad  : NO)
+#define CJ_iPhoneXr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+#define CJ_iPhoneXs_max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+
+#define  CJ_StatusBarHeight      ((CJ_iPhoneX == YES || CJ_iPhoneXr == YES || CJ_iPhoneXs_max == YES) ? 44.f : 20.f)
+#define  CJ_NavigationBarHeight  44.f
+#define  CJ_TabbarHeight         ((CJ_iPhoneX == YES || CJ_iPhoneXr == YES || CJ_iPhoneXs_max == YES) ? (49.f+34.f) : 49.f)
+#define  CJ_TabbarSafeBottomMargin         ((CJ_iPhoneX == YES || CJ_iPhoneXr == YES || CJ_iPhoneXs_max == YES) ? 34.f : 0.f)
+#define  CJ_StatusBarAndNavigationBarHeight  ((CJ_iPhoneX == YES || CJ_iPhoneXr == YES || CJ_iPhoneXs_max == YES) ? 88.f : 64.f)
+
+#endif /* PrefixHeader_pch */
