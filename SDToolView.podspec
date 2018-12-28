@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/GSmoke/GSmoke/SDToolView.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/GSmoke/SDToolView.git", :tag => "0.0.1" }
   #  s.source       = { :git => "http://EXAMPLE/SDToolView.git", :tag => "#{s.version}" }
 
   s.source_files  = "SDToolView/*.{h,m}"
